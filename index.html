@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Agile Typing Test</title>
+    <meta name="description" content="A typing test created for practice. Made with HTML5 and JavaScript.">
+    <meta name="author" content="">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="main-container">
+        <!-- Header -->
+        <header>
+            <h1>Agile Typing Test</h1>
+        </header>
+
+        <!-- Main Test Container -->
+        <div class="container">
+            <!-- Timer & Settings -->
+            <div class="test-controls">
+                <div class="timer-display">
+                    <div id="timerPreview">
+                        <i class="fas fa-clock"></i>
+                        <span id="time">60</span>
+                        <span> seconds left</span>
+                    </div>
+                </div>
+                
+                <div class="test-settings">
+                    <div class="setting-group">
+                        <label for="testDuration">Test Duration:</label>
+                        <select id="testDuration">
+                            <option value="30">30 seconds</option>
+                            <option value="60" selected>1 minute</option>
+                            <option value="90">1 minute 30 seconds</option>
+                        </select>
+                    </div>
+                    
+                    <div class="setting-group">
+                        <label for="textOption">Text Type:</label>
+                        <select id="textOption">
+                            <option value="alphabetical">1000 Common Words</option>
+                            <option value="random">Random Words</option>
+                            <option value="custom">Custom Text</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Optional Settings -->
+            <div class="optional-settings">
+                <div class="checkbox-container">
+                    <input type="checkbox" id="caseSensitive" name="caseSensitive">
+                    <label for="caseSensitive">Case Sensitive</label>
+                </div>
+                <div class="checkbox-container">
+                    <input type="checkbox" id="includePunctuation" name="includePunctuation">
+                    <label for="includePunctuation">Include Punctuation/Numbers</label>
+                </div>
+            </div>
+
+            <!-- Custom Text Input (Initially Hidden) -->
+            <div id="customTextContainer" class="custom-text-container hidden">
+                <label for="customText">Enter your custom text:</label>
+                <textarea id="customText" placeholder="Type or paste your text here..."></textarea>
+                <button id="applyCustomTextBtn" class="btn secondary">Apply Custom Text</button>
+            </div>
+
+            <!-- Accuracy Display -->
+            <div id="accuracyOutput">
+                <div class="stat-box">
+                    <div class="stat-label">Words Correct</div>
+                    <div class="stat-value" id="wordsCorrect">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Words Incorrect</div>
+                    <div class="stat-value" id="wordsIncorrect">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Words Submitted</div>
+                    <div class="stat-value" id="wordsSubmitted">0</div>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-label">Accuracy</div>
+                    <div class="stat-value"><span id="accuracyPercent">0</span>%</div>
+                </div>
+            </div>
+
+            <!-- Test Preview Area -->
+            <div class="test-preview-container">
+                <div id="testPreview"></div>
+            </div>
+
+            <!-- Input Form -->
+            <form id="inputForm">
+                <input id="userInput" type="text" name="userInput" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" placeholder="Type here and press space after each word...">
+                <div class="action-buttons">
+                    <button type="button" id="resetBtn" class="btn secondary">
+                        <i class="fas fa-redo"></i> Reset
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Results Container (Initially Hidden) -->
+        <div id="resultsContainer" class="results-container hidden">
+            <h2>Test Results</h2>
+            <div class="results-grid">
+                <div class="result-card">
+                    <i class="fas fa-tachometer-alt"></i>
+                    <h3>Words Per Minute</h3>
+                    <div class="result-value" id="resultWPM">0</div>
+                </div>
+                <div class="result-card">
+                    <i class="fas fa-check-circle"></i>
+                    <h3>Accuracy</h3>
+                    <div class="result-value" id="resultAccuracy">0%</div>
+                </div>
+                <div class="result-card">
+                    <i class="fas fa-keyboard"></i>
+                    <h3>Correct Words</h3>
+                    <div class="result-value" id="resultCorrect">0</div>
+                </div>
+                <div class="result-card">
+                    <i class="fas fa-times-circle"></i>
+                    <h3>Incorrect Words</h3>
+                    <div class="result-value" id="resultIncorrect">0</div>
+                </div>
+                <div class="word-results-container">
+                    <div class="word-list-container">
+                        <h3><i class="fas fa-check-circle success-icon"></i> Correct Words</h3>
+                        <div class="word-list" id="correctWordsList"></div>
+                    </div>
+                    <div class="word-list-container">
+                        <h3><i class="fas fa-times-circle error-icon"></i> Incorrect Words</h3>
+                        <div class="word-list" id="incorrectWordsList"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="action-buttons">
+                <button id="tryAgainBtn" class="btn primary">Try Again</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>Agile Typing Test &copy; 2025</p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
