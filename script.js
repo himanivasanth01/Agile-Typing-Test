@@ -1,4 +1,3 @@
-// Global variables
 let timerInterval;
 let currentTestDuration = 60;
 let testInProgress = false;
@@ -11,7 +10,7 @@ let typedWords = [];
 let caseSensitive = false;
 let includePunctuation = false;
 
-// Text data for different test options
+
 const textData = {
     alphabetical: [
         "ability", "able", "about", "above", "accept", "according", "account", "across", 
@@ -351,4 +350,14 @@ function resetTest() {
     // Update stats and generate new test
     updateStats();
     generateTest();
+}
+
+// Exported for testing
+function calculateAccuracy(wordsCorrect, wordsSubmitted) {
+    if (wordsSubmitted === 0) return 0;
+    return Math.round((wordsCorrect / wordsSubmitted) * 100);
+}
+
+if (typeof module !== 'undefined') {
+    module.exports = { calculateAccuracy };
 }
