@@ -1,5 +1,5 @@
 {
-  "name": "agile-typing-test",
+  "name": "agile-typing-test", 
   "version": "1.0.0",
   "scripts": {
     "test": "jest",
