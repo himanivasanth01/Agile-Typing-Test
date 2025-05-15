@@ -16,3 +16,8 @@ jobs:
           node-version: '18'
       - run: npm install
       - run: npm test
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright Tests
+        run: npm run e2e
