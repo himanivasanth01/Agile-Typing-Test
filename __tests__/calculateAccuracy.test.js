@@ -1,4 +1,4 @@
-const { calculateAccuracy } = require('../script');
+const { calculateAccuracy } = require('../utils');
 
 test('calculates 80% accuracy for 8 out of 10', () => {
   expect(calculateAccuracy(8, 10)).toBe(80);
