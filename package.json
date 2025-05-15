@@ -2,10 +2,12 @@
   "name": "agile-typing-test",
   "version": "1.0.0",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "e2e": "playwright test"
   },
   "devDependencies": {
     "jest": "^29.0.0",
-    "jest-environment-jsdom": "^29.0.0"
+    "jest-environment-jsdom": "^29.0.0",
+    "@playwright/test": "^1.42.0"
   }
 }
